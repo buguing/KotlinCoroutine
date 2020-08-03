@@ -3,17 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion Versions.targetSDK
 
     defaultConfig {
-        applicationId "com.wellee.coroutine"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        applicationId Versions.appId
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+        versionCode Versions.versionCode
+        versionName Versions.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -23,17 +21,32 @@ android {
         }
     }
 
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation Deps.appCompat
+    implementation Deps.constraintLayout
+
+    implementation Deps.kotlin
+    implementation Deps.coreKtx
+    implementation Deps.ktxCoroutinesCore
+    implementation Deps.ktxCoroutinesAndorid
+    implementation Deps.retrofit
+    implementation Deps.okhttp
+    implementation Deps.converter
+    implementation Deps.adapter
+    implementation Deps.rxjava
+    implementation Deps.rxandroid
+    implementation Deps.activityKtx
+    implementation Deps.lifecycleKtx
+    implementation Deps.livedataKtx
+    implementation Deps.viewmodelKtx
 }
